@@ -15,7 +15,7 @@ public class Question {
 
         boolean userInput;
         while (true) {
-            System.out.print("question: " + this.question + " [allowed: true/false] answer> ");
+            System.out.print("question> " + this.question + " [allowed: true/false]\n answer> ");
             try {
                 boolean tmpInput = input.nextBoolean();
                 userInput = tmpInput; 
@@ -30,6 +30,6 @@ public class Question {
     }
 
     public void printQuestionAndAnswer() {
-        System.err.println("question: " + this.question + " answer: " + this.correctAnswer);
+        System.err.println("question: " + this.question + "\n answer: " + this.correctAnswer);
     }
 }
