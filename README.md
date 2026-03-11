@@ -1,6 +1,10 @@
 # QuizApplication
 A minimalist, console-based Java quiz application with hardcoded questions.
 
+## Supported Question types
+- true-false
+- single choice
+
 ## Prerequisites
 
 - Java Development Kit (JDK) 8 or higher.
