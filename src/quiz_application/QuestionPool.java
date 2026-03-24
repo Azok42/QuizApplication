@@ -22,8 +22,8 @@ public class QuestionPool {
         return this.questions.add(q);
     }
 
-    public int startQuiz() {
-        int result = 0;
+    public double startQuiz() {
+        double result = 0;
 
         Scanner input = new Scanner(System.in);
         for (Question q : questions) {

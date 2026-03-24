@@ -18,7 +18,7 @@ public abstract class ChoiceQuestion implements Question {
             try {
                 int tmpInput = input.nextInt();
 
-                if (tmpInput < 1 || tmpInput > 4) {
+                if (tmpInput < 0 || tmpInput > 4) {
                     System.err.println("Invalid input: Should be between 1 and 4");
                     continue;
                 }
