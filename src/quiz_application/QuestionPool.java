@@ -2,6 +2,7 @@ package quiz_application;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Scanner;
 import quiz_application.question.Question;
 
@@ -24,6 +25,8 @@ public class QuestionPool {
 
     public double startQuiz() {
         double result = 0;
+
+        Collections.shuffle(questions);
 
         Scanner input = new Scanner(System.in);
         for (Question q : questions) {
