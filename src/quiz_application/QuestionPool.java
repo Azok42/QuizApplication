@@ -72,6 +72,18 @@ public final class QuestionPool {
                 boolean correctAnswer = obj.getBoolean("correctAnswer");
 
                 this.questions.add(new TrueFalseQuestion(questionText, correctAnswer));
+            } else if (questionType.equals("q1")) {
+                JSONArray hintsJson = obj.getJSONArray("hints");
+                String[] hintsArray = new String[hintsJson.length()];
+                for (int j = 0; j < hintsJson.length(); j++) {
+                    hintsArray[j] = hintsJson.getString(j);
+                }
+
+                String target = obj.getString("target");
+
+                int correctAnswer = obj.getInt("wrongHint");
+
+                this.questions.add(new Q1Question(questionText, correctAnswer, hintsArray, target));
             }
         }
     }
@@ -104,6 +116,7 @@ public final class QuestionPool {
     public void printAllQuestionsAndAnswers() {
         for (Question q : questions) {
             q.printQuestionAndAnswer();
+            System.out.println("");
         }
     }
 

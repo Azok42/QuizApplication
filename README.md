@@ -5,6 +5,7 @@ A minimalist, console-based Java quiz application with hardcoded questions.
 - true-false
 - single choice
 - multiple choice
+- Q1
 
 ## Prerequisites
 

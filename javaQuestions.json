@@ -49,5 +49,41 @@
     "type": "tf",
     "question": "The JVM (Java Virtual Machine) is platform-independent, meaning the same JVM executable runs on Windows, Linux, and macOS.",
     "correctAnswer": false
+  },
+  {
+    "type": "q1",
+    "target": "static",
+    "question": "The target is a keyword. One of these hints is FALSE:",
+    "hints": [
+      "It allows a member to be accessed without creating an instance of the class.",
+      "It can be applied to variables, methods, and nested classes.",
+      "A method with this keyword can directly use the 'this' reference.",
+      "Static variables are shared among all instances of a class."
+    ],
+    "wrongHint": 3
+  },
+  {
+    "type": "q1",
+    "target": "int",
+    "question": "The target is a data type. Identify the false hint:",
+    "hints": [
+      "It is a primitive type used to store 32-bit signed integers.",
+      "The default value for this type when used as an instance variable is 0.",
+      "It can be used to store decimal values like 3.14 if cast correctly.",
+      "It has a corresponding wrapper class."
+    ],
+    "wrongHint": 3
+  },
+  {
+    "type": "q1",
+    "target": "interface",
+    "question": "The target is a reference type. Which of these hints is FALSE?",
+    "hints": [
+      "It is used to achieve total abstraction and multiple inheritance of behavior.",
+      "A class uses the 'extends' keyword to implement its methods.",
+      "All variables declared inside it are implicitly public, static, and final.",
+      "It can contain default and static methods with actual code bodies."
+    ],
+    "wrongHint": 2
   }
 ]
