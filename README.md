@@ -4,6 +4,7 @@ A minimalist, console-based Java quiz application with hardcoded questions.
 ## Supported Question types
 - true-false
 - single choice
+- multiple choice
 
 ## Prerequisites
 
@@ -19,14 +20,14 @@ git clone https://github.com/Azok42/QuizApplication.git
 - Compile: 
 ```bash
 cd QuizApplication
-javac $(find . -name "*.java") -d bin
+javac -cp "lib/json-java.jar:src" -d bin src/quiz_application/**/*.java
 ```
 
 - Run:
 ```bash
 cd bin
 
-java quiz_application/Quiz
+java -cp ".:../lib/json-java.jar" quiz_application.Quiz
 # OR
-java quiz_application/Quiz print # for print mode 
+java -cp ".:../lib/json-java.jar" quiz_application.Quiz print # for print mode 
 ```

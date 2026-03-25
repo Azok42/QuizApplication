@@ -1,0 +1,38 @@
+[
+  {
+    "type": "mult",
+    "question": "Which of the following are valid reserved keywords in Java?",
+    "answers": ["volatile", "include", "transient", "native"],
+    "correctAnswers": [1, 3, 4]
+  },
+  {
+    "type": "mult",
+    "question": "Which of these are valid Wrapper classes for primitive types in Java?",
+    "answers": ["int", "Integer", "Character", "boolean"],
+    "correctAnswers": [2, 3]
+  },
+  {
+    "type": "mult",
+    "question": "Which of the following are Unchecked Exceptions (RuntimeExceptions)?",
+    "answers": ["NullPointerException", "IOException", "SQLException", "ArithmeticException"],
+    "correctAnswers": [1, 4]
+  },
+  {
+    "type": "single",
+    "question": "Which access modifier allows a member to be accessed only within its own package and by subclasses in other packages?",
+    "answers": ["protected", "private", "no modifier", "public"],
+    "correctAnswer": 1
+  },
+  {
+    "type": "single",
+    "question": "What is the result of attempting to compile and run a Java program where a local variable is used before it is initialized?",
+    "answers": ["a compile-time error occurs", "The variable is assigned a random memory value", "a runtime exception is thrown", "The program compiles but prints 'null' or '0'"],
+    "correctAnswer": 3
+  },
+  {
+    "type": "single",
+    "question": "Which of these memory areas in the JVM is responsible for storing objects and their instance variables?",
+    "answers": ["Method Area", "Stack", "Heap", "PC Register"],
+    "correctAnswer": 2
+  }
+]
