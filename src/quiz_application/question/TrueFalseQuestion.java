@@ -16,7 +16,7 @@ public class TrueFalseQuestion implements Question {
 
         boolean userInput;
         while (true) {
-            System.out.print("question> " + this.question + " [allowed: true/false]\nanswer> ");
+            System.out.print("\nquestion> " + this.question + " [allowed: true/false]\nanswer> ");
             try {
                 boolean tmpInput = input.nextBoolean();
                 userInput = tmpInput; 

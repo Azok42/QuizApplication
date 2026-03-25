@@ -34,5 +34,20 @@
     "question": "Which of these memory areas in the JVM is responsible for storing objects and their instance variables?",
     "answers": ["Method Area", "Stack", "Heap", "PC Register"],
     "correctAnswer": 2
+  },
+  {
+    "type": "tf",
+    "question": "The 'String' class in Java is immutable, meaning its value cannot be changed once created.",
+    "correctAnswer": true
+  },
+  {
+    "type": "tf",
+    "question": "A 'static' method can directly access non-static instance variables within the same class.",
+    "correctAnswer": false
+  },
+  {
+    "type": "tf",
+    "question": "The JVM (Java Virtual Machine) is platform-independent, meaning the same JVM executable runs on Windows, Linux, and macOS.",
+    "correctAnswer": false
   }
 ]

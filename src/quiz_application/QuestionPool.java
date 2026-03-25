@@ -68,6 +68,10 @@ public final class QuestionPool {
                 int correctAnswer = obj.getInt("correctAnswer");
 
                 this.questions.add(new SingleChoiceQuestion(questionText, correctAnswer, answersArray));
+            } else if (questionType.equals("tf")) {
+                boolean correctAnswer = obj.getBoolean("correctAnswer");
+
+                this.questions.add(new TrueFalseQuestion(questionText, correctAnswer));
             }
         }
     }
