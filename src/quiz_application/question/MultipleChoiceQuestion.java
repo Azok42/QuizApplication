@@ -16,9 +16,8 @@ public class MultipleChoiceQuestion extends ChoiceQuestion {
     public double askAndGetScore(Scanner input) {
         System.out.println("question> " + this.question + " [allowed: 1-4, 0 for ending]");
 
-        for (int i = 0; i < this.answers.length; i++)
-            System.out.println("\t" + (i+1) + ". " + this.answers[i]);
-        
+        printAnswers();
+                
         ArrayList<Integer> correctAnswersCopy = new ArrayList<>();
         correctAnswersCopy.addAll(Arrays.asList(correctAnswers));
 

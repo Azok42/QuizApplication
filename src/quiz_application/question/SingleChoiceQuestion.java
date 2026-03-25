@@ -14,9 +14,7 @@ public class SingleChoiceQuestion extends ChoiceQuestion {
     public double askAndGetScore(Scanner input) {
         System.out.println("question> " + this.question + " [allowed: 1-4]");
 
-        for (int i = 0; i < this.answers.length; i++) {
-            System.out.println("\t" + (i+1) + ". " + this.answers[i]);
-        }
+        printAnswers();
         
         int userInput = getUserInput(input);
 

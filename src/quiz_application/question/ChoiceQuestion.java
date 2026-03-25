@@ -11,6 +11,11 @@ public abstract class ChoiceQuestion implements Question {
         this.answers = answers;
     }
 
+    protected void printAnswers() {
+        for (int i = 0; i < this.answers.length; i++)
+            System.out.println("\t" + (i+1) + ". " + this.answers[i]);
+    }
+
     protected int getUserInput(Scanner input) {
         int userInput;
         while (true) {
