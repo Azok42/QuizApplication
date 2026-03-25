@@ -12,7 +12,7 @@ public class SingleChoiceQuestion extends ChoiceQuestion {
 
     @Override
     public double askAndGetScore(Scanner input) {
-        System.out.println("question> " + this.question + " [allowed: 1-4]");
+        System.out.println("\nquestion> " + this.question + " [allowed: 1-4]");
 
         printAnswers();
         

@@ -14,7 +14,7 @@ public class MultipleChoiceQuestion extends ChoiceQuestion {
 
     @Override
     public double askAndGetScore(Scanner input) {
-        System.out.println("question> " + this.question + " [allowed: 1-4, 0 for ending]");
+        System.out.println("\nquestion> " + this.question + " [allowed: 1-4, 0 for ending]");
 
         printAnswers();
                 
