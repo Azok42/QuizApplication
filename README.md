@@ -1,5 +1,5 @@
 # QuizApplication
-A minimalist, console-based Java quiz application with hardcoded questions.
+A minimalist, console-based Java quiz application with questions inside a json file.
 
 ## Supported Question types
 - true-false

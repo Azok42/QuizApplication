@@ -25,8 +25,11 @@ public class Quiz {
             System.out.println("Specify the path of the question pool file (leave empty for default)");
             pathInput = input.nextLine();
 
-            if (pathInput.isEmpty())
+            if (pathInput.isEmpty()) {
                 pathInput = "../javaQuestions.json";
+            }
+
+            System.out.print("\033[H\033[2J");
 
         } catch (Exception e) {
             e.printStackTrace();
