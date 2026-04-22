@@ -30,5 +30,5 @@ cd bin
 
 java -cp ".:../lib/json-java.jar" quiz_application.Quiz
 # OR
-java -cp ".:../lib/json-java.jar" quiz_application.Quiz print # for print mode 
+java -cp ".:../lib/json-java.jar" quiz_application.Quiz help # for help because you will nee it if you want to use this crap
 ```
