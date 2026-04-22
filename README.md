@@ -11,6 +11,17 @@ A minimalist, console-based Java quiz application with questions inside a json f
 
 - Java Development Kit (JDK) 8 or higher.
 
+## Quick Method
+
+Head to the releases and download the .jar file.
+
+Next go to your terminal and in the directory where you downloaded the file run:
+
+```bash
+java -jar QuizApplication.jar
+# or of course any other mode
+```
+
 ## Getting Started
 
 - Clone: 
