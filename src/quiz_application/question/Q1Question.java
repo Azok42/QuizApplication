@@ -1,15 +1,48 @@
 package quiz_application.question;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class Q1Question extends ChoiceQuestion {
-    private final String target;
-    private final int wrongHint;
+    private String target;
+    private int wrongHint;
+    // answers from ChoiceQuestion is used as hints here
 
     public Q1Question(String question, int wrongHint, String[] hints, String target) {
         super(question, hints);
         this.target = target;
         this.wrongHint = wrongHint;
+    }
+
+    public Q1Question(BufferedReader reader) {
+        super(reader);
+
+        try {
+            String line;
+            int i = 0;
+
+            while (true) {
+                line = reader.readLine();
+                if (line == null)
+                    throw new IOException("EOF reached");
+
+                if (line.isBlank() || (!line.startsWith("+") && !line.startsWith("-")))
+                    break;
+
+                if (line.startsWith("-"))
+                    this.wrongHint = i + 1;
+
+                this.answers[i++] = line.replaceFirst("^[+-]:\\s", "");
+            }
+
+            this.target = line;
+
+        } catch (IOException e) {
+            System.err.println("Error while reading file: " + e.getMessage());
+            this.wrongHint = -1;
+        }
     }
 
     @Override
@@ -53,5 +86,18 @@ public class Q1Question extends ChoiceQuestion {
         }
 
         System.out.println("Wrong hint: " + answers[wrongHint]);
+    }
+
+    @Override
+    public boolean save(PrintWriter writer) {
+        writer.write("Q1Question\n");
+        writer.write(this.question + "\n");
+
+        for (int i = 0; i < 4; i++)
+            writer.format("%s: %s\n", ((i+1) == this.wrongHint) ? "-" : "+", this.answers[i]);
+
+        writer.write(this.target + "\n");
+        writer.write("\n");
+        return true;
     }
 }

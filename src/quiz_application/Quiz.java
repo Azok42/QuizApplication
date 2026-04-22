@@ -1,59 +1,71 @@
 package quiz_application;
 
-import java.util.Scanner;
-
 public class Quiz {
     @SuppressWarnings("CallToPrintStackTrace")
     public static void main(String[] args) {
-        boolean printMode = false;
+        String command;
+        if (args.length == 0)
+            command = "start";
+        else
+            command = args[0];
 
-        if (args.length > 1) {
-            showUsage();
-            return;
-        } else if (args.length == 1) {
-            printMode = args[0].equals("print");
-            if (!printMode) {
-                showUsage();
-                return;
+        QuestionPool qp = new QuestionPool();
+
+        switch (command) {
+            case "print" -> qp.printAllQuestionsAndAnswers();
+
+            case "start" -> System.out.println("\nYour Score: " + qp.startQuiz());
+            
+            case "help" -> printUsage();
+
+            case "save" -> {
+                if (args.length < 2)
+                    System.out.println("Error: Mode 'save' needs a filename");
+                else
+                    qp.saveQuestions(args[1]);
+            }
+            
+            case "loadsave" -> {
+                if (args.length < 3)
+                    System.out.println("Error: Mode 'loadsave' needs 2 filenames");
+                else {
+                    qp.loadPoolFile(args[1]);
+                    qp.saveQuestions(args[2]);
+                }
+            }
+
+            case "load" -> {
+                if (args.length < 2)
+                    System.out.println("Error: Mode 'load' needs a filename");
+                else {
+                    qp.loadQuestions(args[1]);
+                    System.out.println("\nYour Score: " + qp.startQuiz());
+                }
+            }
+
+            case "loadprint" -> {
+                if (args.length < 2)
+                    System.out.println("Error: Mode 'loadprint' needs a filename");
+                else {
+                    qp.loadQuestions(args[1]);
+                    qp.printAllQuestionsAndAnswers();
+                }
+            }
+
+            default -> {
+                System.out.println("Error: Unknown mode: '" + command + "'");
+                printUsage();
             }
         }
 
-        System.out.println("  ██████╗ ██╗   ██╗██╗███████╗     █████╗ ██████╗ ██████╗ ██╗     ██╗ ██████╗ █████╗ ████████╗██╗ ██████╗ ███╗   ██╗\n" +
-                           " ██╔═══██╗██║   ██║██║╚══███╔╝    ██╔══██╗██╔══██╗██╔══██╗██║     ██║██╔════╝██╔══██╗╚══██╔══╝██║██╔═══██╗████╗  ██║\n" +
-                           " ██║   ██║██║   ██║██║  ███╔╝     ███████║██████╔╝██████╔╝██║     ██║██║     ███████║   ██║   ██║██║   ██║██╔██╗ ██║\n" +
-                           " ██║▄▄ ██║██║   ██║██║ ███╔╝      ██╔══██║██╔═══╝ ██╔═══╝ ██║     ██║██║     ██╔══██║   ██║   ██║██║   ██║██║╚██╗██║\n" +
-                           " ╚██████╔╝╚██████╔╝██║███████╗    ██║  ██║██║     ██║     ███████╗██║╚██████╗██║  ██║   ██║   ██║╚██████╔╝██║ ╚████║\n" +
-                           "  ╚══▀▀═╝  ╚═════╝ ╚═╝╚══════╝    ╚═╝  ╚═╝╚═╝     ╚═╝     ╚══════╝╚═╝ ╚═════╝╚═╝  ╚═╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝");
-
-        Scanner input = new Scanner(System.in);
-
-        String pathInput = "";
-        try {
-            System.out.println("Specify the path of the question pool file (leave empty for default)");
-            pathInput = input.nextLine();
-
-            if (pathInput.isEmpty()) {
-                pathInput = "../javaQuestions.json";
-            }
-
-            System.out.print("\033[H\033[2J");
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        QuestionPool qp = new QuestionPool(pathInput);
-
-        if (printMode) {
-            qp.printAllQuestionsAndAnswers();
-            return;
-        }
-
-        double result = qp.startQuiz(input);
-        System.out.println(result);
     }
 
-    public static void showUsage() {
-        System.out.println("USAGE: program [print]");
+    public static void printUsage() {
+        System.out.println("USAGE:");
+        System.out.println("  print");
+        System.out.println("  save <text-filename>");
+        System.out.println("  load <text-filename>");
+        System.out.println("  loadprint <text-filename>");
+        System.out.println("  loadsave <json-filename> <text-filename>");
     }
 }

@@ -1,14 +1,31 @@
 package quiz_application.question;
 
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.util.Scanner;
 
 public abstract class ChoiceQuestion implements Question {
-    protected final String question;
-    protected final String[] answers;
+    protected String question;
+    protected String[] answers;
 
     public ChoiceQuestion(String question, String[] answers) {
         this.question = question;
         this.answers = answers;
+    }
+    
+    public ChoiceQuestion(BufferedReader reader) {
+        try {
+            String line = reader.readLine();
+            if (line == null)
+                throw new IOException("EOF reached");
+
+            this.question = line;
+        } catch (IOException e) {
+            System.err.println("Error while reading file: " + e.getMessage());
+            this.question = "";
+        }
+
+        this.answers = new String[4];
     }
 
     protected void printAnswers() {

@@ -1,0 +1,78 @@
+MultipleChoiceQuestion
+Which of the following are valid reserved keywords in Java?
++: volatile
+-: include
++: transient
++: native
+
+MultipleChoiceQuestion
+Which of these are valid Wrapper classes for primitive types in Java?
+-: int
++: Integer
++: Character
+-: boolean
+
+MultipleChoiceQuestion
+Which of the following are Unchecked Exceptions (RuntimeExceptions)?
++: NullPointerException
+-: IOException
+-: SQLException
++: ArithmeticException
+
+SingleChoiceQuestion
+Which access modifier allows a member to be accessed only within its own package and by subclasses in other packages?
++: protected
+-: private
+-: no modifier
+-: public
+
+SingleChoiceQuestion
+What is the result of attempting to compile and run a Java program where a local variable is used before it is initialized?
+-: a compile-time error occurs
+-: The variable is assigned a random memory value
++: a runtime exception is thrown
+-: The program compiles but prints 'null' or '0'
+
+SingleChoiceQuestion
+Which of these memory areas in the JVM is responsible for storing objects and their instance variables?
+-: Method Area
++: Stack
+-: Heap
+-: PC Register
+
+TrueFalseQuestion
+The 'String' class in Java is immutable, meaning its value cannot be changed once created.
+true
+
+TrueFalseQuestion
+A 'static' method can directly access non-static instance variables within the same class.
+false
+
+TrueFalseQuestion
+The JVM (Java Virtual Machine) is platform-independent, meaning the same JVM executable runs on Windows, Linux, and macOS.
+false
+
+Q1Question
+The target is a keyword. One of these hints is FALSE:
++: It allows a member to be accessed without creating an instance of the class.
++: It can be applied to variables, methods, and nested classes.
+-: A method with this keyword can directly use the 'this' reference.
++: Static variables are shared among all instances of a class.
+static
+
+Q1Question
+The target is a data type. Identify the false hint:
++: It is a primitive type used to store 32-bit signed integers.
++: The default value for this type when used as an instance variable is 0.
+-: It can be used to store decimal values like 3.14 if cast correctly.
++: It has a corresponding wrapper class.
+int
+
+Q1Question
+The target is a reference type. Which of these hints is FALSE?
++: It is used to achieve total abstraction and multiple inheritance of behavior.
+-: A class uses the 'extends' keyword to implement its methods.
++: All variables declared inside it are implicitly public, static, and final.
++: It can contain default and static methods with actual code bodies.
+interface
+

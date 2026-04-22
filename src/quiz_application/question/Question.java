@@ -1,8 +1,10 @@
 package quiz_application.question;
 
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public interface Question {
     public double askAndGetScore(Scanner input);
     public void printQuestionAndAnswer();
+    public boolean save(PrintWriter writer);
 }
