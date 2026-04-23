@@ -13,12 +13,12 @@ A minimalist, console-based Java quiz application with questions inside a json f
 
 ## Quick Method
 
-Head to the releases and download the .jar file.
+Head to the releases and download the zip and unzip it.
 
-Next go to your terminal and in the directory where you downloaded the file run:
+Next go to your terminal and in the directory where you unziped the file run:
 
 ```bash
-java -jar QuizApplication.jar
+java -jar QuizApplication.jar load examples/java.questions
 # or of course any other mode
 ```
 
@@ -39,7 +39,7 @@ javac -cp "lib/json-java.jar:src" -d bin src/quiz_application/**/*.java
 ```bash
 cd bin
 
-java -cp ".:../lib/json-java.jar" quiz_application.Quiz
-# OR
+java -cp ".:../lib/json-java.jar" quiz_application.Quiz load ../example/java.questions
+# or
 java -cp ".:../lib/json-java.jar" quiz_application.Quiz help # for help because you will need it if you want to use this crap
 ```
