@@ -4,18 +4,16 @@ public class Quiz {
     @SuppressWarnings("CallToPrintStackTrace")
     public static void main(String[] args) {
         String command;
-        if (args.length == 0)
-            command = "start";
-        else
-            command = args[0];
+        if (args.length == 0) {
+            printUsage();        
+            return;
+        }
+
+        command = args[0];
 
         QuestionPool qp = new QuestionPool();
 
         switch (command) {
-            case "print" -> qp.printAllQuestionsAndAnswers();
-
-            case "start" -> System.out.println("\nYour Score: " + qp.startQuiz());
-            
             case "help" -> printUsage();
 
             case "save" -> {
@@ -62,10 +60,8 @@ public class Quiz {
 
     public static void printUsage() {
         System.out.println("USAGE:");
-        System.out.println("  print");
-        System.out.println("  save <text-filename>");
-        System.out.println("  load <text-filename>");
-        System.out.println("  loadprint <text-filename>");
-        System.out.println("  loadsave <json-filename> <text-filename>");
+        System.out.println("  load <questions-file>: loads a question file into the program and asks the questions");
+        System.out.println("  loadprint <questions-file>: loads a question file into the program and prints the questions and answers");
+        System.out.println("  loadsave <json-file> <questions-file>: converts a JSON-questions file to a pure questions file");
     }
 }
