@@ -41,11 +41,11 @@ public class TrueFalseQuestion implements Question {
     }
 
     @Override
-    public double askAndGetScore(Scanner input) {
+    public double askAndGetScore(Scanner input, int number) {
 
         boolean userInput;
         while (true) {
-            System.out.print("\nquestion> " + this.question + " [allowed: true/false]\nanswer> ");
+            System.out.print("\n" + number + ". question> " + this.question + " [allowed: true/false]\nanswer> ");
             try {
                 boolean tmpInput = input.nextBoolean();
                 userInput = tmpInput; 

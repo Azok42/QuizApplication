@@ -47,8 +47,8 @@ public class Q1Question extends ChoiceQuestion {
 
     @Override
     @SuppressWarnings("CallToPrintStackTrace")
-    public double askAndGetScore(Scanner input) {
-        System.err.println("\nquestion> " + this.question + "[allowed: 1-4 for the wrong hint]");
+    public double askAndGetScore(Scanner input, int number) {
+        System.err.println("\n" + number + ". question> " + this.question + "[allowed: 1-4 for the wrong hint]");
 
         printAnswers();
 

@@ -42,8 +42,8 @@ public class SingleChoiceQuestion extends ChoiceQuestion {
     }
 
     @Override
-    public double askAndGetScore(Scanner input) {
-        System.out.println("\nquestion> " + this.question + " [allowed: 1-4]");
+    public double askAndGetScore(Scanner input, int number) {
+        System.out.println("\n" + number + ". question> " + this.question + " [allowed: 1-4]");
 
         printAnswers();
         

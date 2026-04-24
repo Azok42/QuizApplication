@@ -162,7 +162,7 @@ public final class QuestionPool {
         Collections.shuffle(questions);
 
         for (Question q : questions) {
-            result += q.askAndGetScore(input);
+            result += q.askAndGetScore(input, questions.indexOf(q)+1);
         }
 
         return result;
