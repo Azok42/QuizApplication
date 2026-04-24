@@ -37,7 +37,7 @@ public class Quiz {
                     System.out.println("Error: Mode 'load' needs a filename");
                 else {
                     qp.loadQuestions(args[1]);
-                    System.out.println("\nYour Score: " + qp.startQuiz());
+                    System.out.println("\nYour Score: " + qp.startQuiz() + "/" + qp.getMaxPossibleScore());
                 }
             }
 

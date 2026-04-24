@@ -168,6 +168,10 @@ public final class QuestionPool {
         return result;
     }
 
+    public double getMaxPossibleScore() {
+        return this.questions.size();
+    }
+
     public void printAllQuestionsAndAnswers() {
         for (Question q : questions) {
             q.printQuestionAndAnswer();
