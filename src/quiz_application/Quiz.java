@@ -16,13 +16,6 @@ public class Quiz {
         switch (command) {
             case "help" -> printUsage();
 
-            case "save" -> {
-                if (args.length < 2)
-                    System.out.println("Error: Mode 'save' needs a filename");
-                else
-                    qp.saveQuestions(args[1]);
-            }
-            
             case "loadsave" -> {
                 if (args.length < 3)
                     System.out.println("Error: Mode 'loadsave' needs 2 filenames");
