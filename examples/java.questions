@@ -36,8 +36,8 @@ What is the result of attempting to compile and run a Java program where a local
 SingleChoiceQuestion
 Which of these memory areas in the JVM is responsible for storing objects and their instance variables?
 -: Method Area
-+: Stack
--: Heap
+-: Stack
++: Heap
 -: PC Register
 
 TrueFalseQuestion
