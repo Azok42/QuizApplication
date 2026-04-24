@@ -174,7 +174,7 @@ public final class QuestionPool {
 
     public void printAllQuestionsAndAnswers() {
         for (Question q : questions) {
-            q.printQuestionAndAnswer();
+            q.printQuestionAndAnswer(questions.indexOf(q));
             System.out.println("");
         }
     }

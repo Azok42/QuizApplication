@@ -79,8 +79,8 @@ public class Q1Question extends ChoiceQuestion {
     }
 
     @Override
-    public void printQuestionAndAnswer() {
-        System.out.println("question: " + this.question);
+    public void printQuestionAndAnswer(int number) {
+        System.out.println("" + number + ". question: " + this.question);
         System.out.println("target: " + this.target);
         
         System.out.println("Correct hints:");

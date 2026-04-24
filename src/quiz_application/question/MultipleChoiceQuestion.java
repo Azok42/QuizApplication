@@ -110,8 +110,8 @@ public class MultipleChoiceQuestion extends ChoiceQuestion {
     }
 
     @Override
-    public void printQuestionAndAnswer() {
-        System.out.println("question: " + this.question);
+    public void printQuestionAndAnswer(int number) {
+        System.out.println("" + number + ". question: " + this.question);
         System.out.println("answers: ");
         for (int correctIndex : correctAnswers) {
             System.out.println("\t" + answers[correctIndex - 1]);

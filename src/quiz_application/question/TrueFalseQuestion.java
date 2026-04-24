@@ -74,8 +74,8 @@ public class TrueFalseQuestion implements Question {
     }
 
     @Override
-    public void printQuestionAndAnswer() {
-        System.err.println("question: " + this.question + "\nanswer: " + this.correctAnswer);
+    public void printQuestionAndAnswer(int number) {
+        System.err.println("" + number + ". question: " + this.question + "\nanswer: " + this.correctAnswer);
     }
 
     @Override

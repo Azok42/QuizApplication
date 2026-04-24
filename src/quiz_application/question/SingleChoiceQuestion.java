@@ -67,8 +67,8 @@ public class SingleChoiceQuestion extends ChoiceQuestion {
     }
 
     @Override
-    public void printQuestionAndAnswer() {
-        System.out.println("question: " + this.question + "\nanswer: " + this.answers[this.correctAnswer - 1]);
+    public void printQuestionAndAnswer(int number) {
+        System.out.println("" + number + ". question: " + this.question + "\nanswer: " + this.answers[this.correctAnswer - 1]);
     }
 
     @Override
