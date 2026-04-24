@@ -7,4 +7,5 @@ public interface Question {
     public double askAndGetScore(Scanner input, int number);
     public void printQuestionAndAnswer();
     public boolean save(PrintWriter writer);
+    public String getAnswerOverview();
 }

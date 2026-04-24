@@ -1,5 +1,7 @@
 package quiz_application;
 
+import java.util.Scanner;
+
 public class Quiz {
     @SuppressWarnings("CallToPrintStackTrace")
     public static void main(String[] args) {
@@ -30,7 +32,10 @@ public class Quiz {
                     System.out.println("Error: Mode 'load' needs a filename");
                 else {
                     qp.loadQuestions(args[1]);
-                    System.out.println("\nYour Score: " + qp.startQuiz() + "/" + qp.getMaxPossibleScore());
+
+                    Scanner input = new Scanner(System.in);
+                    System.out.println("\nYour Score: " + qp.startQuiz(input) + "/" + qp.getMaxPossibleScore());
+                    askForOverview(input, qp);
                 }
             }
 
@@ -56,5 +61,27 @@ public class Quiz {
         System.out.println("  load <questions-file>: loads a question file into the program and asks the questions");
         System.out.println("  loadprint <questions-file>: loads a question file into the program and prints the questions and answers");
         System.out.println("  loadsave <json-file> <questions-file>: converts a JSON-questions file to a pure questions file");
+    }
+
+    public static void askForOverview(Scanner input, QuestionPool qp) {
+        System.out.print("Do you want an Overview of your answers? [true/false]");
+        
+        boolean tmpInput;
+
+        while (true) {
+            try {
+                tmpInput = input.nextBoolean();
+                break;
+
+            } catch (Exception e) {
+                System.err.println("Invalid input: Should be 'true' or 'false'");
+                input.next();
+            }
+        }
+
+        if (!tmpInput)
+            return;
+
+        qp.printOverview();
     }
 }

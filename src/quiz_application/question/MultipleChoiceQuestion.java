@@ -9,6 +9,8 @@ import java.util.Scanner;
 
 public class MultipleChoiceQuestion extends ChoiceQuestion {
     private Integer[] correctAnswers;
+    private ArrayList<Integer> lastUserAnswers = new ArrayList<>();
+    private double lastScore = 0;
 
     public MultipleChoiceQuestion(String question, Integer[] correctAnswers, String[] answers) {
         super(question, answers);
@@ -55,9 +57,12 @@ public class MultipleChoiceQuestion extends ChoiceQuestion {
         ArrayList<Integer> correctAnswersCopy = new ArrayList<>();
         correctAnswersCopy.addAll(Arrays.asList(correctAnswers));
 
+        lastUserAnswers.clear();
         int tmpInput;
         double result = 0;
         for (int i = 0; i < 4 && (tmpInput = getUserInput(input)) != 0; i++) {
+            lastUserAnswers.add(tmpInput);
+
             boolean correctAnswer = false;
             for (int j = 0; j < correctAnswersCopy.size(); j++) {
                 if (tmpInput != correctAnswersCopy.get(j))
@@ -74,8 +79,34 @@ public class MultipleChoiceQuestion extends ChoiceQuestion {
                 result--;
         }
 
-        result /= correctAnswers.length;
-        return result;
+        lastScore = result / correctAnswers.length;
+        return lastScore;
+    }
+
+    @Override
+    public String getAnswerOverview() {
+        StringBuilder userAnswerBuilder = new StringBuilder();
+        for (int i = 0; i < lastUserAnswers.size(); i++) {
+            int answerIndex = lastUserAnswers.get(i);
+            if (i > 0)
+                userAnswerBuilder.append(", ");
+            if (answerIndex >= 1 && answerIndex <= answers.length)
+                userAnswerBuilder.append(answerIndex).append(". ").append(answers[answerIndex - 1]);
+        }
+
+        StringBuilder correctAnswerBuilder = new StringBuilder();
+        for (int i = 0; i < correctAnswers.length; i++) {
+            if (i > 0)
+                correctAnswerBuilder.append(", ");
+            correctAnswerBuilder.append(correctAnswers[i]).append(". ").append(answers[correctAnswers[i] - 1]);
+        }
+
+        String resultText = (lastScore == 1.0) ? "Correct" : "Incorrect";
+
+        return "question: " + this.question + "\n" +
+                "Your answer(s): " + userAnswerBuilder + "\n" +
+                "Correct answer(s): " + correctAnswerBuilder + "\n" +
+                "Result: " + resultText;
     }
 
     @Override

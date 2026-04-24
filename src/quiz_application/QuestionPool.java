@@ -60,9 +60,10 @@ public final class QuestionPool {
             return false;
         } catch (IOException e) {
             System.err.println(e.getMessage());
+            return false;
         }
 
-        return false;
+        return true;
     }
 
     public boolean saveQuestions(String filename) {
@@ -149,14 +150,13 @@ public final class QuestionPool {
     }
 
     public double startQuiz() {
-        printBanner();
-
         Scanner input = new Scanner(System.in);
 
         return startQuiz(input);
     }
 
     public double startQuiz(Scanner input) {
+        printBanner();
         double result = 0;
 
         Collections.shuffle(questions);
@@ -176,6 +176,13 @@ public final class QuestionPool {
         for (Question q : questions) {
             q.printQuestionAndAnswer();
             System.out.println("");
+        }
+    }
+
+    public void printOverview() {
+        System.out.println("\nOverview of your answers:");
+        for (int i = 0; i < questions.size(); i++) {
+            System.out.printf("%d. %s%n%n", i + 1, questions.get(i).getAnswerOverview());
         }
     }
 

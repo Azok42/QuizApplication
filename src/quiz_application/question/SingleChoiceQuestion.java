@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class SingleChoiceQuestion extends ChoiceQuestion {
     private int correctAnswer;
+    private int lastUserAnswer = -1;
 
     public SingleChoiceQuestion(String question, int correctAnswer, String[] answers) {
         super(question, answers);
@@ -48,8 +49,21 @@ public class SingleChoiceQuestion extends ChoiceQuestion {
         printAnswers();
         
         int userInput = getUserInput(input);
+        this.lastUserAnswer = userInput;
 
         return (userInput == this.correctAnswer) ? 1 : 0;
+    }
+
+    @Override
+    public String getAnswerOverview() {
+        String answerText = answers[lastUserAnswer - 1];
+        String correctText = answers[correctAnswer - 1];
+        String resultText = (lastUserAnswer == correctAnswer) ? "Correct" : "Incorrect";
+
+        return "question: " + this.question + "\n" +
+                "Your answer: " + answerText + "\n" +
+                "Correct answer: " + correctText + "\n" +
+                "Result: " + resultText;
     }
 
     @Override

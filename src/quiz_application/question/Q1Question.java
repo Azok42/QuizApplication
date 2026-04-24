@@ -8,6 +8,9 @@ import java.util.Scanner;
 public class Q1Question extends ChoiceQuestion {
     private String target;
     private int wrongHint;
+    private int lastWrongHint = -1;
+    private String lastTargetAnswer = "";
+    private double lastScore = 0;
     // answers from ChoiceQuestion is used as hints here
 
     public Q1Question(String question, int wrongHint, String[] hints, String target) {
@@ -56,21 +59,23 @@ public class Q1Question extends ChoiceQuestion {
 
         System.out.println("The wrong hint is: ");
         int wrontHintInput = getUserInput(input);
+        this.lastWrongHint = wrontHintInput;
         if (wrontHintInput == this.wrongHint)
             result++;
         else
             result--;
 
-        String answer;
         System.out.println("The searched term is: ");
         System.out.print("answer> ");
-        answer = input.next();
+        String answer = input.next();
+        this.lastTargetAnswer = answer;
         if (answer.equals(this.target))
             result++;
         else
             result--;
 
-        return result / 2;
+        lastScore = result / 2.0;
+        return lastScore;
     }
 
     @Override
@@ -80,12 +85,12 @@ public class Q1Question extends ChoiceQuestion {
         
         System.out.println("Correct hints:");
         for (int i = 0; i < answers.length; i++) {
-            if (i == wrongHint)
+            if (i == wrongHint - 1)
                 continue;
             System.out.println("\t" + (i+1) + ". hint: " + answers[i]);
         }
 
-        System.out.println("Wrong hint: " + answers[wrongHint]);
+        System.out.println("Wrong hint: " + answers[wrongHint - 1]);
     }
 
     @Override
@@ -99,5 +104,20 @@ public class Q1Question extends ChoiceQuestion {
         writer.write(this.target + "\n");
         writer.write("\n");
         return true;
+    }
+
+    @Override
+    public String getAnswerOverview() {
+        String userHint = "" + lastWrongHint + ". " + answers[lastWrongHint - 1];
+        String correctHint = "" + wrongHint + ". " + answers[wrongHint - 1];
+        String userTarget = lastTargetAnswer;
+        String resultText = (lastScore == 1.0) ? "Correct" : "Incorrect";
+
+        return "question: " + this.question + "\n" +
+                "Your wrong hint: " + userHint + "\n" +
+                "Correct wrong hint: " + correctHint + "\n" +
+                "Your answer: " + userTarget + "\n" +
+                "Correct target: " + this.target + "\n" +
+                "Result: " + resultText;
     }
 }

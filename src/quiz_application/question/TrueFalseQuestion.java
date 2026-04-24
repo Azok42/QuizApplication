@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class TrueFalseQuestion implements Question {
     private String question;
     private boolean correctAnswer;
+    private Boolean lastUserAnswer = null;
 
     public TrueFalseQuestion(String question, boolean answer) {
         this.question = question;
@@ -48,7 +49,7 @@ public class TrueFalseQuestion implements Question {
             System.out.print("\n" + number + ". question> " + this.question + " [allowed: true/false]\nanswer> ");
             try {
                 boolean tmpInput = input.nextBoolean();
-                userInput = tmpInput; 
+                userInput = tmpInput;
                 break;
             } catch (Exception e) {
                 System.err.println("Invalid input: Should be 'true' or 'false'");
@@ -56,7 +57,20 @@ public class TrueFalseQuestion implements Question {
             }
         }
 
+        this.lastUserAnswer = userInput;
         return (userInput == this.correctAnswer) ? 1 : 0;
+    }
+
+    @Override
+    public String getAnswerOverview() {
+        String answerText = lastUserAnswer.toString();
+        String correctText = Boolean.toString(correctAnswer);
+        String resultText = (lastUserAnswer == correctAnswer) ? "Correct" : "Incorrect";
+
+        return "question: " + this.question + "\n" +
+                "Your answer: " + answerText + "\n" +
+                "Correct answer: " + correctText + "\n" +
+                "Result: " + resultText;
     }
 
     @Override
